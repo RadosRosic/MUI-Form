@@ -20,6 +20,9 @@ function App() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
 
+  const [countries, setCountries] = useState([]);
+  const [nationalities, setNationalities] = useState([]);
+
   const allSelected =
     gender &&
     title &&
@@ -31,9 +34,6 @@ function App() {
     callingCode &&
     phone &&
     email;
-
-  const [countries, setCountries] = useState([]);
-  const [nationalities, setNationalities] = useState([]);
 
   useEffect(() => {
     fetch("https://restcountries.com/v2/all")
