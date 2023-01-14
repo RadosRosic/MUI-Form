@@ -21,7 +21,7 @@ function App() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
 
-  const [allInfo, setAllinfo] = useState([]);
+  const [allInfo, setAllinfo] = useState(null);
   const [users, setUsers] = useState([]);
 
   const [countries, setCountries] = useState([]);
