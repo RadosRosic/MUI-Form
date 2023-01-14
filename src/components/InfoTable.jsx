@@ -31,7 +31,7 @@ const InfoTable = ({ users }) => {
           {users?.map((user) => (
             <TableRow>
               <TableCell>
-                {`${user?.title} ${user?.name} ${user?.lastName}`}
+                {`${user?.title} ${user?.firstName} ${user?.lastName}`}
               </TableCell>
               <TableCell>{user?.gender}</TableCell>
               <TableCell>

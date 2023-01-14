@@ -10,7 +10,7 @@ const AreaCode = ({ callingCode, setCallingCode, countries }) => {
         value={callingCode}
         onChange={(event) => setCallingCode(event.target.value)}
         children={countries.map((country, i) => (
-          <MenuItem key={`${country}${i}`} value={country}>
+          <MenuItem key={`${country}${i}`} value={`+${country[1]}`}>
             <Box
               sx={{
                 display: "flex",

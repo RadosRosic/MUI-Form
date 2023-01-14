@@ -21,6 +21,9 @@ function App() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
 
+  const [allInfo, setAllinfo] = useState([]);
+  const [users, setUsers] = useState([]);
+
   const [countries, setCountries] = useState([]);
   const [nationalities, setNationalities] = useState([]);
 
@@ -35,6 +38,20 @@ function App() {
     callingCode &&
     phone &&
     email;
+
+  const gatherInfo = () => {
+    setAllinfo({
+      title: title,
+      firstName: firstName,
+      lastName: lastName,
+      birthday: birthday,
+      nationality: nationality,
+      citizenID: citizenID,
+      gender: gender,
+      phone: callingCode + phone,
+    });
+    setUsers([...users, allInfo]);
+  };
 
   useEffect(() => {
     fetch("https://restcountries.com/v2/all")
@@ -95,7 +112,11 @@ function App() {
             </Grid>
           </Grid>
           <CardActions>
-            <Button sx={{ ml: "auto" }} disabled={!allSelected}>
+            <Button
+              sx={{ ml: "auto" }}
+              disabled={!allSelected}
+              onClick={gatherInfo}
+            >
               Create User
             </Button>
           </CardActions>
@@ -105,7 +126,7 @@ function App() {
         sx={{ p: 2, width: "720px", m: "auto", height: "400px" }}
         elevation={4}
       >
-        <InfoTable />
+        <InfoTable users={users} />
       </Paper>
     </>
   );
