@@ -26,6 +26,18 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [nationalities, setNationalities] = useState([]);
 
+  const allInfo = {
+    title: title,
+    firstName: firstName,
+    lastName: lastName,
+    birthday: birthday,
+    nationality: nationality,
+    citizenID: citizenID,
+    gender: gender,
+    email: email,
+    phone: callingCode + phone,
+  };
+
   const allSelected =
     gender &&
     title &&
@@ -39,20 +51,7 @@ function App() {
     email;
 
   const gatherInfo = () => {
-    setUsers([
-      ...users,
-      {
-        title: title,
-        firstName: firstName,
-        lastName: lastName,
-        birthday: birthday,
-        nationality: nationality,
-        citizenID: citizenID,
-        gender: gender,
-        email: email,
-        phone: callingCode + phone,
-      },
-    ]);
+    setUsers((previousUsers) => [...previousUsers, allInfo]);
   };
 
   useEffect(() => {

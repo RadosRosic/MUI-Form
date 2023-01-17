@@ -23,6 +23,7 @@ const Gender = ({ gender, setGender }) => {
         >
           {genders.map((gender) => (
             <FormControlLabel
+              key={gender}
               control={<Radio />}
               label={gender}
               value={gender}

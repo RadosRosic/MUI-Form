@@ -21,14 +21,14 @@ const InfoTable = ({ users }) => {
       <Table>
         <TableHead>
           <TableRow>
-            {tableHeadArr.map((item) => (
-              <TableCell>{item}</TableCell>
+            {tableHeadArr.map((item, i) => (
+              <TableCell key={item + i}>{item}</TableCell>
             ))}
           </TableRow>
         </TableHead>
         <TableBody>
-          {users?.map((user) => (
-            <TableRow>
+          {users?.map((user, i) => (
+            <TableRow key={user + i}>
               <TableCell>
                 {`${user?.title} ${user?.firstName} ${user?.lastName}`}
               </TableCell>
